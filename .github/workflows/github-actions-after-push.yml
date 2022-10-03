@@ -1,0 +1,31 @@
+name: GitHub Actions After Push Into Develop Branch
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+
+      - name: Install chrome browser
+      - run: |
+          VERSION_STRING="106.0.5249.91"
+          wget "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${VERSION_STRING}_amd64.deb"
+          sudo dpkg -i "google-chrome-stable_${VERSION_STRING}_amd64.deb"
+
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+           node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test
+          run: npm run wdio
