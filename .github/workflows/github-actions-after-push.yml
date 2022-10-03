@@ -14,10 +14,7 @@ jobs:
           ref: develop
 
       - name: Install chrome browser
-      - run: |
-          VERSION_STRING="106.0.5249.91"
-          wget "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${VERSION_STRING}_amd64.deb"
-          sudo dpkg -i "google-chrome-stable_${VERSION_STRING}_amd64.deb"
+      - uses: browser-actions/setup-chrome@latest
 
       - name: Install node
         uses: actions/setup-node@v2
