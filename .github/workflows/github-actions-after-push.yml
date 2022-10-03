@@ -18,6 +18,11 @@ jobs:
         with:
            node-version: '18'
 
+      - name: Install Chrome
+        run: sudo apt-get install libxss1 libappindicator1 libindicator7
+              wget https://dl.google.com/linux/direct/google-chrome-stable_106.0.5249.91_amd64.deb
+              sudo apt install ./google-chrome*.deb
+
       - name: Install dependencies
         run: npm install
 
