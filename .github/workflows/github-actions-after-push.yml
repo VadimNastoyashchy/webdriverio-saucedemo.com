@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: browser-actions/setup-chrome@latest
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -17,9 +18,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
            node-version: '18'
-
-      - name: Install Chrome
-      - uses: browser-actions/setup-chrome@latest
 
       - name: Install dependencies
         run: npm install
