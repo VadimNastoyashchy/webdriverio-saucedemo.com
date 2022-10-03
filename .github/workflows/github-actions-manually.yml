@@ -5,11 +5,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: abhi1693/setup-browser@v0.3.4
-        with:
-          browser: chrome
-          version: 106.0.5249.91
-
+      - name: Install Chromium
+        run: sudo apt-get install chromium-browser
 
       - name: Checkout
         uses: actions/checkout@v2
