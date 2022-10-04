@@ -10,6 +10,8 @@ jobs:
     steps:
        - name: Install Chromium
           run: sudo apt-get install chromium-browser
+
+      - name: Chrome version
         - run: chrome --version
 
       - name: Checkout
