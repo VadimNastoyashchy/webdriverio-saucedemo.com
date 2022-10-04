@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: abhi1693/setup-browser@v0.3.4
+        with:
+          browser: chrome
+          version: 1036826
+      - run: chrome --version
 
       - name: Checkout
         uses: actions/checkout@v2
         with:
           ref: develop
-
-      - run: |
-          VERSION_STRING="106.0.5249.65"
-          wget "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${VERSION_STRING}_amd64.deb"
-          sudo dpkg -i "google-chrome-stable_${VERSION_STRING}_amd64.deb"
 
       - name: Install node
         uses: actions/setup-node@v1
