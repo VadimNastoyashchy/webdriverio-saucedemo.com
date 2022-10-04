@@ -6,7 +6,8 @@ jobs:
 
     steps:
       - name: Install Chromium
-        run: sudo apt-get install google-chrome-stable
+        run:  sudo apt update
+              sudo apt-get install google-chrome-stable
 
       - name: Checkout
         uses: actions/checkout@v2
