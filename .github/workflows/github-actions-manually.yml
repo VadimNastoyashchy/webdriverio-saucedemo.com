@@ -9,6 +9,7 @@ jobs:
         with:
           browser: chrome
           version: latest
+      - run: chrome --version
 
       - name: Checkout
         uses: actions/checkout@v2
