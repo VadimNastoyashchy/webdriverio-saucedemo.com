@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       - name: Install Chromium
-          run: sudo apt-get install chromium-browser
-
-      - name: Chrome version
-        - run: chrome --version
+      - uses: abhi1693/setup-browser@v0.3.4
+        with:
+          browser: chrome
+          version: 1036746
+      - run: chrome --version
 
       - name: Checkout
         uses: actions/checkout@v2
