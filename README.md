@@ -16,3 +16,6 @@ Install all the necessary dependency using npm :
 ```
 npm install
 ```
+
+ci = "chromedriver": "106.0.1",
+local = "chromedriver": "108.0.0",
