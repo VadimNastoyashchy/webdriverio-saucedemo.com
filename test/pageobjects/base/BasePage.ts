@@ -8,11 +8,11 @@ export default abstract class BasePage {
         this.PAGE_URL = pageUrl;
     }
 
-    public async open(): Promise<void> {
+    public async open() {
         await browser.url(`${browser.options.baseUrl}${this.PAGE_URL}`);
     }
 
-    public async getPageUrl(): Promise<string> {
+    public async getPageUrl() {
         return `${browser.options.baseUrl}${this.PAGE_URL}`;
     }
 }

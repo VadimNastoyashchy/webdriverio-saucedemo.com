@@ -46,4 +46,18 @@ describe('My Login application', () => {
         await expect(await loginPage.inputEmailField).toHaveValue('');
         await expect(await loginPage.inputPasswordField).toHaveValue('');
     });
+
+    it('Login using cookies with \'standard\' user and log out of the account to check that the fields are empty', async () => {
+        const loginPage = new LoginPage();
+        const inventoryPage = new InventoryPage();
+
+        await loginPage.apiLogInWithCredentials(Credentials.getUserCredentials(AccountType.Standard));
+        await inventoryPage.open();
+        await expect(await browser.getUrl()).toContain(await inventoryPage.getPageUrl());
+        await inventoryPage.header.clickOnSlideMenu();
+        await inventoryPage.header.clickOnLogOutInSlideMenu();
+        await expect(await browser.getUrl()).toContain(await loginPage.getPageUrl());
+        await expect(await loginPage.inputEmailField).toHaveValue('');
+        await expect(await loginPage.inputPasswordField).toHaveValue('');
+    });
 });

@@ -1,14 +1,29 @@
 export default class Header {
 
     private readonly headerContainerLocator = '#header_container';
-    private readonly burgerButton = $(`${this.headerContainerLocator} [class="bm-burger-button"]`);
-    private readonly burgerMenuLogOutButton = $(`${this.headerContainerLocator} [id="logout_sidebar_link"]`);
 
-    public async clickOnSlideMenu(): Promise<void> {
-        await (await this.burgerButton).click();
+    private get burgerButton() {
+        return $(`${this.headerContainerLocator} .bm-burger-button`);
     }
 
-    public async clickOnLogOutInSlideMenu(): Promise<void> {
-        await (await this.burgerMenuLogOutButton).click();
+    private get burgerMenuLogOutButton() {
+        return $(`${this.headerContainerLocator} #logout_sidebar_link`);
     }
+
+    private get cartImage() {
+        return $(`${this.headerContainerLocator} .shopping_cart_link`);
+      }
+
+    public async clickOnSlideMenu() {
+        await this.burgerButton.click();
+    }
+
+    public async clickOnLogOutInSlideMenu() {
+        await expect(await this.burgerMenuLogOutButton).toBeClickable();
+        await this.burgerMenuLogOutButton.click();
+    }
+
+    public async clickOnCartLink() {
+        await this.cartImage.click();
+      }
 }

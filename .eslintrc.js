@@ -30,8 +30,7 @@ module.exports = {
         ],
         '@typescript-eslint/semi': [
             'error'
-        ],
-        '@typescript-eslint/explicit-function-return-type': ['error']
+        ]
     },
     extends: [
         'plugin:wdio/recommended',
