@@ -22,12 +22,6 @@ module.exports = {
             }
         ],
         'no-trailing-spaces': 'error',
-        '@typescript-eslint/typedef': [
-            'error',
-            {
-                'parameter': true
-            }
-        ],
         '@typescript-eslint/semi': [
             'error'
         ]

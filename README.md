@@ -17,5 +17,11 @@ Install all the necessary dependency using npm :
 npm install
 ```
 
+package.json use the following dependency:
 ci = "chromedriver": "106.0.1",
-local = "chromedriver": "108.0.0",
+local = "chromedriver": "108.0.0", or your actual local chromedriver version.
+
+for local use just to comment in wdio.conf.ts
+'goog:chromeOptions': {
+            args: ['--headless', '--disable-gpu', '--disable-dev-shm-usage'],
+        }
